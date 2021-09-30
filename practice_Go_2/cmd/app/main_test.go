@@ -5,20 +5,29 @@ import (
 	"testing"
 )
 
-func TestSearchUsersTrue(t *testing.T) {
-	f_u1 := []string{"Pedro", "Juan", "Luis", "Matias", "Alon", "Fernando"}
-	f_u2 := []string{"Matias", "Fernando"}
+func TestSearchNumbersTrue(t *testing.T) {
+	f_u1 := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	f_u2 := []int{1, 2, 3}
 
-	result := SearchUsers(f_u1, f_u2)
+	result := search(f_u1, f_u2)
 
 	assert.True(t, result)
 }
 
-func TestSearchUsersFalse(t *testing.T) {
-	f_u1 := []string{"Pedro", "Juan", "Luis", "Matias", "Alon", "Mariano"}
-	f_u2 := []string{"Matias", "Fernando"}
+func TestSearchNumbersFalse(t *testing.T) {
+	f_u1 := []int{1, 2, 3, 4, 5, 6, 7, 8, 10}
+	f_u2 := []int{}
 
-	result := SearchUsers(f_u1, f_u2)
+	result := search(f_u1, f_u2)
 
 	assert.False(t, result)
+}
+func TestSearchNumbersEmpty(t *testing.T) {
+	f_u1 := []int{}
+	f_u2 := []int{}
+
+	result := search(f_u1, f_u2)
+
+	assert.False(t, result)
+
 }
